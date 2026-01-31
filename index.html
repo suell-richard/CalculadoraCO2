@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>🍃 Calculador de Emissão de CO²</title>
+  <link rel="stylesheet" href="css/style.css">
+  </head>
+<body>
+  <header class="calculator__header">
+    <h1 class="calculator__title">🍃 Calculador de Emissão de CO²</h1>
+    <p class="calculator__subtitle">Calcule as emissões de CO² de viagens para comparar o impacto entre meios de transporte.</p>
+  </header>
+
+  <main>
+    <form id="calculator-form" class="calculator__form" aria-labelledby="form-title">
+      <h2 id="form-title" class="calculator__form-title">Detalhes da Viagem</h2>
+
+      <div class="calculator__field">
+        <label for="origin" class="calculator__label">Origem</label>
+        <input id="origin" name="origin" list="cities-list" class="calculator__input" placeholder="Escolha ou digite uma cidade">
+        <datalist id="cities-list"></datalist>
+      </div>
+
+      <div class="calculator__field">
+        <label for="destination" class="calculator__label">Destino</label>
+        <input id="destination" name="destination" list="cities-list" class="calculator__input" placeholder="Escolha ou digite uma cidade">
+      </div>
+
+      <div class="calculator__field">
+        <label for="distance" class="calculator__label">Distância (km)</label>
+        <input id="distance" name="distance" type="number" class="calculator__input" readonly>
+        <p class="calculator__helper">A distância será preenchida automaticamente</p>
+      </div>
+
+      <div class="calculator__field">
+        <input type="checkbox" id="manual-distance" class="calculator__checkbox">
+        <label for="manual-distance" class="calculator__label">Inserir distância manualmente</label>
+      </div>
+
+      <fieldset class="calculator__transport" aria-label="Meio de transporte">
+        <legend class="calculator__legend">Meio de Transporte</legend>
+        <div class="calculator__transport-grid">
+
+          <label class="calculator__radio" for="transport-bicycle">
+            <input id="transport-bicycle" class="calculator__radio-input" type="radio" name="transport" value="bicycle">
+            <span class="calculator__radio-label">🚲 Bicicleta</span>
+          </label>
+
+          <label class="calculator__radio" for="transport-car">
+            <input id="transport-car" class="calculator__radio-input" type="radio" name="transport" value="car" checked>
+            <span class="calculator__radio-label">🚗 Carro</span>
+          </label>
+
+          <label class="calculator__radio" for="transport-bus">
+            <input id="transport-bus" class="calculator__radio-input" type="radio" name="transport" value="bus">
+            <span class="calculator__radio-label">🚌 Ônibus</span>
+          </label>
+
+          <label class="calculator__radio" for="transport-truck">
+            <input id="transport-truck" class="calculator__radio-input" type="radio" name="transport" value="truck">
+            <span class="calculator__radio-label">🚚 Caminhão</span>
+          </label>
+
+        </div>
+      </fieldset>
+
+      <button type="submit" class="calculator__submit">Calcular Emissão</button>
+    </form>
+
+    <section id="results" class="calculator__results hidden" aria-hidden="true">
+      <h3 class="calculator__results-title">Resultados</h3>
+      <div id="comparison-content" class="calculator__results-content"></div>
+    </section>
+
+    <section id="carbon-credits" class="calculator__carbon-credits hidden" aria-hidden="true">
+      <h3 class="calculator__carbon-credits-title">Créditos de Carbono</h3>
+      <div id="carbon-credits-content" class="calculator__carbon-credits-content"></div>
+    </section>
+
+  </main>
+
+  <footer class="calculator__footer">
+    <p class="calculator__credits">Desenvolvido com ❤️ para a DIO | Projeto GitHub Copilot</p>
+  </footer>
+
+  <script src="js/routes-data.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/calculator.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
